@@ -1,0 +1,151 @@
+<html>
+<head>
+	<title>04</title>
+	<script type="text/javascript" src="14.js"></script>
+	<script type="text/javascript" >
+
+
+//object的创建方法：
+
+	// 1.工厂方法
+
+	// 原料
+	// var person1 = new Object();
+	// 加工
+	// person1.name="工厂方法创建";
+	// person1.age=1;
+	// person1.show=function(){
+	// 	document.writeln(this.name+" "+this.age+"<br />");
+	// }
+	// person1.show();
+
+
+	// 2.字面量声明 JSON写法
+	// （只能创建出一个这个类型的，无法重复）
+
+	// var person2={
+	// 	name:"对象字面量",
+	// 	age:2,
+	// 	show:function(){
+	// 		document.writeln(this.name+" "+this.age+"<br />");
+	// 	}
+	// };
+	// person2.show();
+
+
+	// 3.类(原型对象)(其实也是对象，它实际上是Function类的一个实例)
+
+	// function Person(name, age){
+	// 	this.name=name;//公有，可在外部调用
+	// 	var age=age;//私有,只能在类内使用，不可调用
+	// 	this.showGY=function(){//公有
+	// 		document.writeln(this.name+" "+this.age);
+	// 	}
+	// 	function showSY(){//私有
+	// 		document.writeln(this.name+" "+this.age);
+	// 	}
+	// }
+	// var people = new Person("lisi",13); //new会偷偷完成的原料和返回的功能
+
+	// 函数构造器方法
+	// function People(){
+	// }
+	// People.prototype = {
+	// 	name: "aaa",
+	// 	age: 11,
+	// 	eat: function (){
+	// 		alert("eee");
+	// 	}
+	// }
+
+	// 混合方式
+	// function People(name, age){
+	// 	this.name=name;
+	// 	this.age=age;
+	// }
+	//.prototype相当于把所有此类对象加东西
+	// People.prototype.eat= function (){
+	// 		alert(this.name);
+	// };
+
+	// var p = new People();
+	// alert(p.age);   //11
+	// alert(People.age);   //undefined
+
+	// 继承方法1
+	// function Student(name, age){
+	// }
+	// Student.prototype = new People();
+
+	// var s = new Student("aaa", 23);
+
+	// 继承方法2
+	// function Student(name, age){
+		// call()传入的对象将作为People内的this执行
+	// 	People.call(this, name, age);
+	// }
+	// for(var i in People.prototype) {
+	// 	Student.prototype[i] = People.prototype[i];
+	// }
+
+	// （不能这样写Student.prototype = People.prototype;）
+	// 直接这样指是引用。子代变父代也会变，所以不行。
+
+	// var s = new Student("aaa", 23);
+
+
+
+
+
+	// //对象的特别说明
+	// function Person(){}
+	// document.writeln("Person.constructor: "+Person.constructor+"<br />");
+	// var p=new Person();
+	// document.writeln("p.constructor: "+p.constructor+"<br />");
+	// document.writeln("typeof p :"+typeof p+"<br />");
+	// document.writeln("typeof Person: "+(typeof Person)+"<br />");
+
+
+	// //var b = "123"  等于  var b = new String("123");
+	// b = "123";
+	// document.writeln("typeof b: "+typeof b+"<br />");
+
+
+	// //如何判断p的数据类型是不是Person
+	// function Person(){}
+	// var p=new Person();
+	// if(p instanceof Person){
+	// 	document.writeln("p instanceof Person方法：p是Person类型"+"<br />");
+	// }
+	// if(p.constructor==Person){
+	// 	document.writeln("p.constructor==Person方法：p是Person类型"+"<br />");
+	// }
+
+
+	// // 命名空间(把方法包在json里)
+	// var per = {};
+
+	// per.com={};
+	// per.com2={};
+
+	// per.com.a=function(){
+	// 	alert("1");
+	// }
+	// per.com2.a=function(){
+	// 	alert("2");
+	// }
+
+
+
+
+	var p=new Person("小明",10);
+	document.writeln("p.showGY():");
+	p.showGY();
+	document.writeln("<br />p.showSY():");
+	p.showSY();
+
+	</script>
+</head>
+<body>
+</body>
+</html>
